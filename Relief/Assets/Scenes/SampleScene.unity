@@ -2025,6 +2025,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5484435989833687349, guid: c84058f68973a4c46ab00f0c6cb145bb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8107606197441350127, guid: c84058f68973a4c46ab00f0c6cb145bb, type: 3}
       propertyPath: m_Name
       value: Relief

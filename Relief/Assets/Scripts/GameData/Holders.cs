@@ -16,7 +16,7 @@ namespace GameData
             {
                 tree.transform.SetParent(treeHolders[_currentTreeIndex]);
                 tree.transform.position = treeHolders[_currentTreeIndex].position;
-                _currentHouseIndex++;
+                _currentTreeIndex++;
             }
         }
 

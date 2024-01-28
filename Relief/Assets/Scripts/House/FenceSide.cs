@@ -49,10 +49,12 @@ namespace House
                 var rayOrigin = new Vector3(fencePart.position.x, 20, fencePart.position.z);
 
                 if (Physics.Raycast(rayOrigin, -Vector3.up, out var hit, 20f, ~layerMask))
+                {
                     if (hit.collider.gameObject.CompareTag("Relief"))
                         LiftFencePart(hit, fencePart);
                     else
                         ReturnToDefault(fencePart);
+                }
             }
         }
 
