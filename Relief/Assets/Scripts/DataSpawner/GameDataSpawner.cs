@@ -2,7 +2,7 @@
 using House;
 using UnityEngine;
 
-namespace GameDataSpawner
+namespace DataSpawner
 {
     public class GameDataSpawner : MonoBehaviour
     {

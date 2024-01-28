@@ -2,10 +2,11 @@
 
 namespace House
 {
-    public class SetFenceActive : MonoBehaviour
+    public class FenceState : MonoBehaviour
     {
         [SerializeField] private GameObject fence;
-        
-        public void SetActiveFen()
+
+        public void SetActiveFence(bool state) => 
+            fence.SetActive(state);
     }
 }

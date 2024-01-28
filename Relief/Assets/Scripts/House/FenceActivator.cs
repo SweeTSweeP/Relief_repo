@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using House;
 using UnityEngine;
 
-namespace FenceActivator
+namespace House
 {
     public class FenceActivator : MonoBehaviour
     {
