@@ -1,36 +1,57 @@
 using DataSpawner;
 using House;
+using MainCamera;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameDataControl : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private GameDataSpawner gameDataSpawner;
-    [SerializeField] private FenceActivator fenceActivator;
-
-    [SerializeField] private Button addHouseButton;
-    [SerializeField] private Button addTreeButton;
-    [SerializeField] private Button showHideFenceButton;
-
-    private bool _fenceState;
-
-    private void Start()
+    public class GameDataControl : MonoBehaviour
     {
-        InitSpawnHouseButton();
-        InitSpawnTreeButton();
-        InitShowHideFenceButton();
-    }
+        [SerializeField] private GameDataSpawner gameDataSpawner;
+        [SerializeField] private FenceActivator fenceActivator;
+        [SerializeField] private CameraView cameraView;
 
-    private void InitSpawnHouseButton() => 
-        addHouseButton.onClick.AddListener(gameDataSpawner.SpawnHouse);
+        [SerializeField] private Button addHouseButton;
+        [SerializeField] private Button addTreeButton;
+        [SerializeField] private Button showHideFenceButton;
+        [SerializeField] private Button cameraViewButton;
 
-    private void InitSpawnTreeButton() => 
-        addTreeButton.onClick.AddListener(gameDataSpawner.SpawnTree);
+        private bool _fenceState;
+        private bool _is2DView;
 
-    private void InitShowHideFenceButton() =>
-        showHideFenceButton.onClick.AddListener(()=>
+        private void Start()
         {
-            _fenceState = !_fenceState;
-            fenceActivator.SetFenceActive(_fenceState);
-        });
+            InitSpawnHouseButton();
+            InitSpawnTreeButton();
+            InitShowHideFenceButton();
+            InitCameraViewButton();
+        }
+
+        private void InitSpawnHouseButton() => 
+            addHouseButton.onClick.AddListener(gameDataSpawner.SpawnHouse);
+
+        private void InitSpawnTreeButton() => 
+            addTreeButton.onClick.AddListener(gameDataSpawner.SpawnTree);
+
+        private void InitShowHideFenceButton() =>
+            showHideFenceButton.onClick.AddListener(()=>
+            {
+                _fenceState = !_fenceState;
+                fenceActivator.SetFenceActive(_fenceState);
+            });
+
+        private void InitCameraViewButton()
+        {
+            cameraViewButton.onClick.AddListener(() =>
+            {
+                _is2DView = !_is2DView;
+
+                if (_is2DView)
+                    cameraView.Set2DView();
+                else
+                    cameraView.Set3DView();
+            });
+        }
+    }
 }
